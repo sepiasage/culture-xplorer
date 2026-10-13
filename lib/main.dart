@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,36 +67,66 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Row(
-          children: [
-            Expanded(
-              child: Transform.translate(
-                offset: const Offset(0, -50),
-              child: Container(
-                decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 238, 238, 238),
-                boxShadow: [
-                  BoxShadow(
-                  color: Colors.black.withOpacity(0.2), // Shadow color
-                  spreadRadius: 2, // How far the shadow extends
-                  blurRadius: 5, // How blurry/soft the shadow is
-                  offset: Offset(0, 3),
-                  )
-                ],
-                borderRadius: BorderRadius.circular(16.0), // Sets rounded corners
-                ),
-                margin: const EdgeInsets.all(16.0),
-                height: 400,
-              )
+  child: Container(
+    width: 350,
+    padding: const EdgeInsets.all(24.0),
+    decoration: BoxDecoration(
+      color: Colors.white, 
+      borderRadius: BorderRadius.circular(16.0),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          blurRadius: 20,
+          offset: const Offset(0, 10),
         ),
+      ],
     ),
-           
-    
-          ],
+    child: Column(
+      mainAxisSize: MainAxisSize.min, 
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'Login',
+          style: GoogleFonts.lato(
+            fontSize: 24, 
+            fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
-),
+        SizedBox(height: 24),
+        TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+              hintText: 'Username',
+            )
+        ), //username
         
-     
+        Padding(
+          padding: EdgeInsets.only(top: 16),
+          child: TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(),
+            hintText: 'Password',
+            ),
+          )
+        ),
+
+        Padding (      
+          padding: EdgeInsets.only(top: 16),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+              shape: RoundedRectangleBorder()
+            ),
+          onPressed: () {},
+          child: const Text('Login') 
+        ) 
+        )
+        
+      ]
+    )
+    )
+      )
     );
   }
 }
